@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:news/network/remote/dio_helper.dart';
 import 'package:news/resourses/app_colors.dart';
 
 import 'layout/home_layout.dart';
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
 
       title: 'Flutter Demo',
       theme: ThemeData(
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: AppColors.selectItem
+        ),
         scaffoldBackgroundColor: AppColors.white,
         appBarTheme: AppBarTheme(
           backgroundColor: AppColors.white,
@@ -28,16 +32,53 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontSize: 20
           ),
+          iconTheme: IconThemeData(
+             color: AppColors.black
+          ),
           systemOverlayStyle: SystemUiOverlayStyle(
+            systemStatusBarContrastEnforced: false,
+            statusBarIconBrightness: Brightness.dark,
             statusBarColor: AppColors.white,
-            statusBarBrightness: Brightness.dark
+
           )
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
+          elevation: 10,
+          selectedItemColor: AppColors.selectItem,
+          backgroundColor: AppColors.white,
         )
 
       ),
+      darkTheme: ThemeData(
+          scaffoldBackgroundColor: AppColors.white,
+          appBarTheme: AppBarTheme(
+              backgroundColor: AppColors.white,
+              elevation: 0,
+              titleTextStyle: TextStyle(
+                  color:AppColors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+              ),
+              iconTheme: IconThemeData(
+                  color: AppColors.black
+              ),
+              systemOverlayStyle: SystemUiOverlayStyle(
+                systemStatusBarContrastEnforced: false,
+                statusBarIconBrightness: Brightness.dark,
+                statusBarColor: AppColors.white,
+
+              )
+          ),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            type: BottomNavigationBarType.fixed,
+            elevation: 10,
+            selectedItemColor: AppColors.selectItem,
+            backgroundColor: AppColors.white,
+          )
+
+      ),
+      themeMode: ThemeMode.light,
       home: HomeLayout(),
     );
   }
