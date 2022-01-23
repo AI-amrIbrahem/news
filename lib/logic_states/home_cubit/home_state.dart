@@ -6,4 +6,5 @@ abstract class HomeState {}
 class HomeInitial extends HomeState {}
 
 class ChangeBottomNavState extends HomeState {}
+class ChangeMode extends HomeState {}
 

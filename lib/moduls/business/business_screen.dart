@@ -15,7 +15,7 @@ class BusinessScreen extends StatelessWidget {
         return ListView.builder(
           itemCount: snapshot.data!.articles.length,
           itemBuilder: (context, index) {
-            return getNewsItem(snapshot.data!.articles[index]) ;
+            return getNewsItem(snapshot.data!.articles[index],context) ;
           },
         );
 

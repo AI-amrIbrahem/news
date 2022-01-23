@@ -9,13 +9,14 @@ class SportsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
      var cubit = HomeCubit.get(context);
     return FutureBuilder(builder: (context,AsyncSnapshot<NewsModel> snapshot) {
       if (snapshot.data != null){
         return ListView.builder(
           itemCount: snapshot.data!.articles.length,
           itemBuilder: (context, index) {
-            return getNewsItem(snapshot.data!.articles[index]) ;
+            return getNewsItem(snapshot.data!.articles[index],context) ;
           },
         );
 

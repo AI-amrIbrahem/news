@@ -28,5 +28,9 @@ class DioHelper{
     return await dio.get(path,queryParameters: query);
   }
 
+  Future<Response> getSearchData({required path,required query})async{
+    return await dio.get(path,queryParameters: query);
+  }
+
 
 }

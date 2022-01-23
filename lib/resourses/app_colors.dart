@@ -6,8 +6,10 @@ class AppColors{
 
   static const selectItem = Colors.deepOrange;
 
-  static var titleItem = Colors.black;
+  static const titleItem = Colors.black;
 
-  static var subTitleItem = Colors.grey;
+  static const subTitleItem = Colors.grey;
+
+  static const darkBackgroundColor = Color(0xFF333739);
 
 }

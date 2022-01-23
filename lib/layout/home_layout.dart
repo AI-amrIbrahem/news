@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/logic_states/home_cubit/home_cubit.dart';
 import 'package:news/models/response/response_model.dart';
+import 'package:news/moduls/search/search_screen.dart';
 import 'package:news/network/remote/dio_helper.dart';
 import 'package:news/network/repo/repo.dart';
 import 'package:news/resourses/app_Strings.dart';
@@ -13,19 +14,21 @@ class HomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => HomeCubit(),
-      child: BlocBuilder<HomeCubit, HomeState>(
+    return BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           HomeCubit homeCubit = HomeCubit.get(context);
+          print(5);
           return Scaffold(
+
             appBar: AppBar(
               title: Text(AppStrings.t1),
               actions: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: IconButton(onPressed: (){}, icon: Icon(Icons.search)),
-                )
+                IconButton(onPressed: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => const SearchScreen()));
+                }, icon: Icon(Icons.search)),
+                IconButton(onPressed: (){
+                  homeCubit.changeMode();
+                }, icon: Icon(Icons.brightness_4_outlined)),
               ],
             ),
 
@@ -39,7 +42,6 @@ class HomeLayout extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
+      );
   }
 }
